@@ -13,8 +13,8 @@ function Home() {
             <div className="col-5">
               <h1 className="mx-auto text-center">Undercast</h1>
               <p className="mx-auto text-center text-justify intro-text">
-                Aqui voce pode ouvir e baixar todos os podcasts, se quiser, pode tambem se cadastrar
-                e seguir seus podcasts prediletos
+                Aqui voce pode ouvir e baixar seus podcasts, tambem pode se cadastrar e seguir seus
+                podcasts prediletos. Da uma olhada ;)
               </p>
               <a className="btn btn-dark btn-lg btn-block cadastrar-btn" href="/" role="button">
                 Cadastrar
