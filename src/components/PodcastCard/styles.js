@@ -5,6 +5,18 @@ const Container = styled.div`
     img {
       width: 200px;
     }
+    .card-body {
+      max-width: 200px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    img {
+      width: 200px;
+    }
+    .card-body {
+      max-width: 200px;
+    }
   }
   div {
     /* background-color: black; */
