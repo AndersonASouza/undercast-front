@@ -8,11 +8,12 @@ class TopPodcastContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // podcasts: props.podcasts,
+      countPodcasts: 0,
     };
   }
 
   render() {
+    // const countPodcasts = {this.state};
     return (
       <Container>
         <h2 className="text-center">Os mais escutados do Brasil</h2>
@@ -34,26 +35,5 @@ class TopPodcastContainer extends Component {
     );
   }
 }
-
-// function TopPodcastContainer() {
-//   return (
-//     // <Container>
-//     //   <div className="row justify-content-around">
-//     //     <PodcastCard />
-//     //     <PodcastCard />
-//     //     <PodcastCard />
-//     //     <PodcastCard />
-//     //     <PodcastCard />
-//     //   </div>
-//     //   <div className="row justify-content-around">
-//     //     <PodcastCard />
-//     //     <PodcastCard />
-//     //     <PodcastCard />
-//     //     <PodcastCard />
-//     //     <PodcastCard />
-//     //   </div>
-//     // </Container>
-//   );
-// }
 
 export default TopPodcastContainer;

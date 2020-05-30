@@ -1,12 +1,19 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-
-import { FaPlay, FaBackward, FaForward } from 'react-icons/fa';
+import {
+  FaPlay,
+  FaStepBackward,
+  FaStepForward,
+  FaVolumeUp,
+  // FaVolumeMute,
+  FaDownload,
+  FaRedoAlt,
+  FaUndoAlt,
+} from 'react-icons/fa';
 
 import Container from './styles';
 
-function Podcast(props) {
+function Podcast() {
   return (
     <Container className="container-fluid mx-auto">
       <div>
@@ -18,26 +25,13 @@ function Podcast(props) {
             className="mx-auto d-block shadow-mb"
           />
         </div>
-        <div className="container align-middle">
-          <h2 className="text-center">Episodio</h2>
-          <h3 className="text-center">Nome do podcast</h3>
-          <div className="container form-group">
-            <input type="range" className="form-control-range" id="formControlRange" />
-          </div>
-
-          {/* <audio
-            autoPlay
-            controls
-            src="https://nerdcast.jovemnerd.com.br/nerdcast_speak_english_27.mp3"
-          /> */}
-        </div>
-
-        <div className="container">
-          <div className="row mt-4 justify-content-md-center align-items-center">
-            <FaBackward className="btn mr-4 ml-4" size={60} />
-            <FaPlay className="btn" size={80} />
-            <FaForward className="btn mr-4 ml-4" size={60} />
-          </div>
+        <div className="mx-auto">
+          <button type="button" className="btn btn-outline-dark">
+            <FaPlay style={{ margin: '0px', padding: '0px' }} />
+          </button>
+          <button type="button" className="btn btn-outline-dark">
+            <FaDownload style={{ margin: '0px', padding: '0px' }} />
+          </button>
         </div>
 
         <div className="container mx-auto">
@@ -57,6 +51,57 @@ function Podcast(props) {
             DE EMAILS: LIVE - Nerdcast 725 https://youtu.be/kg1lBqr48r8
           </p>
         </div>
+      </div>
+      <div className="container-fluid">
+        {/* <audio
+            autoPlay
+            controls
+            src="https://nerdcast.jovemnerd.com.br/nerdcast_speak_english_27.mp3"
+          /> */}
+
+        <input
+          type="range"
+          min="0"
+          max="120"
+          className="form-control-range mx-auto"
+          id="formControlRange"
+        />
+        <div className="d-flex justify-content-between">
+          <h4 className="text-left">00:00</h4>
+          <h4 className="text-right">00:00</h4>
+        </div>
+
+        <div className="row mb-4 justify-content-md-center align-items-center">
+          <FaUndoAlt className="mr-4 " color="#2d3436" size={15} />
+          <FaStepBackward className="mr-4" color="#2d3436" size={15} />
+          <FaPlay className="mr-4" color="#2d3436" size={15} />
+          <FaStepForward className="mr-4 " color="#2d3436" size={15} />
+          <FaRedoAlt className="mr-4 " color="#2d3436" size={15} />
+          <FaVolumeUp className="mr mr-5 justify-content-end" color="#2d3436" size={15} />
+          <h2 className="text-center ml-5">Nome do podcast</h2>
+          {/* <div className="form-group align-self-center mx-auto">
+          </div> */}
+        </div>
+        {/* <div className="container">
+          <div className="row justify-content-md-center">
+            <div className="col-3">
+              <FaUndoAlt className=" mr-4 " color="#2d3436" size={15} />
+              <FaStepBackward className="mr-4" color="#2d3436" size={15} />
+              <FaPlay className="mr-4" color="#2d3436" size={15} />
+              <FaStepForward className="mr-4 " color="#2d3436" size={15} />
+              <FaRedoAlt className="mr-4 " color="#2d3436" size={15} />
+              <FaVolumeUp className="mr-4 " color="#2d3436" size={15} />
+            </div>
+            <div className="col-9">
+              <h4 className="text-center mr-2">Episodio</h4>
+              <h5 className="align-self-center">00:00</h5>
+              <div className="form-group align-self-center">
+                <input type="range" min="0" max="120" className="form-control-range" />
+              </div>
+              <h5 className="align-self-center">00:00</h5>
+            </div>
+          </div>
+        </div> */}
       </div>
     </Container>
   );
