@@ -22,8 +22,6 @@ class Home extends Component {
 
   loadFeed = async () => {
     const response = await api.get(`/feed?rank=10`);
-
-    // response.data.
     this.setState({ podcasts: response.data });
     console.log(this.state.podcasts);
   };
