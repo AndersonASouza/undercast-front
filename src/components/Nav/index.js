@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import api from '../../services/api';
+import { Link, Redirect } from 'react-router-dom';
+// import api from '../../services/api';
 import Container from './styles';
 
 class NavComponent extends Component {
@@ -8,19 +8,35 @@ class NavComponent extends Component {
     super(props);
     this.state = {
       searchPodcast: '',
+      fireRedirect: false,
+      searchResponse: null,
     };
     this.handleChange = this.handleChange.bind(this);
   }
-
-  search = async () => {
-    const response = await api.get(`?search=${this.state.searchPodcast}&?limit=1`);
-    console.log(response);
-  };
 
   handleChange(event) {
     this.setState({ searchPodcast: event.target.value });
     console.log(this.state.searchPodcast);
   }
+
+  submitForm = (e) => {
+    e.preventDefault();
+    this.setState({ fireRedirect: true });
+  };
+
+  // handleSubmit(event) {
+  //   if (event.key === 'Enter') {
+  //     {
+  //       <Redirect
+  //         to={{
+  //           pathname: '/search',
+  //           search: `?search=${this.state.searchPodcast}`,
+  //           state: { referrer: currentLocation },
+  //         }}
+  //       />;
+  //     }
+  //   }
+  // }
 
   render() {
     return (
@@ -61,21 +77,33 @@ class NavComponent extends Component {
                 </Link>
               </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
+            <form className="form-inline my-2 my-lg-0" onSubmit={this.submitForm}>
               <input
                 className="form-control mr-sm-2"
-                placeholder="Search"
-                aria-label="Search"
+                placeholder="O que voce quer ouvir?"
+                aria-label="Digite o que voce quer ouvir"
                 value={this.state.searchString}
                 onChange={this.handleChange}
+                // onKeyPress={this.handleSubmit.bind(this)}
               />
-              <button
-                onClick={() => this.search(this.state.searchString)}
+
+              <Link
+                // onClick={() => this.search(this.state.searchString)}
                 className="btn btn-outline-success my-2 my-sm-0"
                 type="button"
+                to={`/search/query=${this.state.searchPodcast.replace(' ', '+')}`}
               >
-                Search
-              </button>
+                Pesquisar
+              </Link>
+              {this.state.fireRedirect && (
+                <Redirect
+                  to={{
+                    pathname: '/search/',
+                    search: `?query=${this.state.searchPodcast.replace(' ', '+')}`,
+                    // state: { response: this.state.searchResponse },
+                  }}
+                />
+              )}
             </form>
           </div>
         </nav>
