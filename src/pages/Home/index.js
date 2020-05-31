@@ -20,11 +20,12 @@ class Home extends Component {
     this.loadFeed();
   }
 
-  loadFeed = async () => {
+  async loadFeed() {
+    const { podcasts } = this.state;
     const response = await api.get(`/feed?rank=10`);
     this.setState({ podcasts: response.data });
-    console.log(this.state.podcasts);
-  };
+    console.log(podcasts);
+  }
 
   render() {
     return (
